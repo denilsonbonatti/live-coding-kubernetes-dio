@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-html
+  labels:
+    app: app-html
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: app-html
+  template:
+    metadata:
+      labels:
+        app: app-html
+    spec:
+      containers:
+      - name: app-html
+        image: denilsonbonatti/app-html:1.0
+        ports:
+        - containerPort: 80
